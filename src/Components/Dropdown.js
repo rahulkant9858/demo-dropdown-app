@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useRef } from "react"
 import "./Dropdown.css"
 
 function Dropdown({ dropdownList }) {
@@ -6,6 +6,9 @@ function Dropdown({ dropdownList }) {
     let [filteredSearchList, searchfilterList] = useState([])
     let [openDropdownFlag, setOpenDropdownFlag] = useState(true)
 
+    let handleClick = () => {
+        setOpenDropdownFlag(!openDropdownFlag)
+    }
     let handleSearch = (e) => {
         setOpenDropdownFlag(true) 
         console.log(e.target.value)
@@ -20,13 +23,13 @@ function Dropdown({ dropdownList }) {
     }
     return (
         <div className="dropdown">
-            <input value={searchValue} onChange={(e) => handleSearch(e)} className="dropdown-header"/>
+            <input value={searchValue} onClick={handleClick} onChange={(e) => handleSearch(e)} className="dropdown-header" placeholder="Select Location"/>
             {
             true ?
                 <div className="dropdown-list">
                     {
                         
-                        searchValue === ""
+                        searchValue === "" 
                         ?
                         openDropdownFlag && dropdownList.map((item, id) => <p key={item.id} onClick={e => itemClicked(e)}>{item.cities}</p>)
                         :
