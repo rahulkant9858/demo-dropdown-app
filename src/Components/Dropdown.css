@@ -1,3 +1,18 @@
-.dropdown-list{
-    border: 1px solide black
+.dropdown{
+    position: relative;
+    justify-content: center;
+    display: fle
 }
+.dropdown-header{
+    position: relative;
+    width: 200px;
+    display: block;
+}
+.dropdown-list{
+    border: 1px solide black;
+    position: absolute;
+    width: 200px;
+    margin-top: 20px
+
+}
+

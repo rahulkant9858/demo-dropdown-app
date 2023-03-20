@@ -11,11 +11,11 @@ function Dropdown({ dropdownList }) {
         searchfilterList(dropdownList.filter(item => item.cities.startsWith(e.target.value)))
     }
     return (
-        <div>
-            <input value={searchValue} onChange={(e) => handleSearch(e)}/>
+        <div className="dropdown">
+            <input value={searchValue} onChange={(e) => handleSearch(e)} className="dropdown-header"/>
             {
             true ?
-                <div className="doropdown-list">
+                <div className="dropdown-list">
                     {
                         
                         searchValue === ""
