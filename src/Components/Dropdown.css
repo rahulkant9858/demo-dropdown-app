@@ -1,7 +1,7 @@
 .dropdown{
     position: relative;
     justify-content: center;
-    display: fle
+    display: flex
 }
 .dropdown-header{
     position: relative;
@@ -9,7 +9,7 @@
     display: block;
 }
 .dropdown-list{
-    border: 1px solide black;
+    border: 1px solid black;
     position: absolute;
     width: 200px;
     margin-top: 20px

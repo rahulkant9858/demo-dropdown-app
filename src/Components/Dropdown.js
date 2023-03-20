@@ -4,11 +4,19 @@ import "./Dropdown.css"
 function Dropdown({ dropdownList }) {
     let [searchValue, setSearchValue ] = useState("")
     let [filteredSearchList, searchfilterList] = useState([])
+    let [openDropdownFlag, setOpenDropdownFlag] = useState(true)
 
     let handleSearch = (e) => {
+        setOpenDropdownFlag(true) 
         console.log(e.target.value)
         setSearchValue(e.target.value)
         searchfilterList(dropdownList.filter(item => item.cities.startsWith(e.target.value)))
+    }
+
+    let itemClicked = (e) => {
+        console.log("item clicked", e.target.innerHTML)
+        setSearchValue(e.target.innerHTML)
+        setOpenDropdownFlag(false)
     }
     return (
         <div className="dropdown">
@@ -20,9 +28,9 @@ function Dropdown({ dropdownList }) {
                         
                         searchValue === ""
                         ?
-                        dropdownList.map((item, id) => <p key={item.id}>{item.cities}</p>)
+                        openDropdownFlag && dropdownList.map((item, id) => <p key={item.id} onClick={e => itemClicked(e)}>{item.cities}</p>)
                         :
-                        filteredSearchList.map((item, id) => <p key={item.id}>{item.cities}</p>)
+                        openDropdownFlag && filteredSearchList.map((item, id) => <p key={item.id} onClick={e => itemClicked(e)}>{item.cities}</p>)
                     }
                 </div>:
 
